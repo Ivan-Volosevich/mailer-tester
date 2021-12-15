@@ -1,0 +1,68 @@
+.mailer-tester__registration_form {
+  h2 {
+    text-align: center;
+    font-size: 24px;
+    font-weight: 600;
+  }
+
+  form {
+    mat-dialog-content {
+      .registration-form__block {
+        display: flex;
+        flex-direction: column;
+        padding: 5px 20px 20px;
+        position: relative;
+
+        input {
+          width: 280px;
+          height: 40px;
+          font-size: 20px;
+        }
+
+        .validation-error {
+          font-size: 12px;
+          font-weight: 400;
+          line-height: 120%;
+          color: rgb(184, 0, 0);
+          position: absolute;
+          bottom: 0;
+        }
+      }
+    }
+
+    mat-dialog-actions {
+      justify-content: space-evenly;
+      padding: 30px 0;
+
+      .close-button, .submit-button {
+        border: none;
+        border-radius: 4px;
+        color: #fff;
+        font-size: 18px;
+        font-weight: 600;
+        padding: 12px 24px;
+        cursor: pointer;
+        transition: ease-in-out .3s;
+        border: 1px solid rgb(0, 0, 0, 0);
+      }
+
+      .close-button {
+        background-color: #550000;
+
+        &:hover {
+          background-color: #7c0000;
+          border: 1px solid rgb(0, 95, 46);
+        }
+      }
+
+      .submit-button {
+        background-color: #00551f;
+
+        &:hover {
+          background-color: #007c2d;
+          border: 1px solid rgb(75, 0, 0);
+        }
+      }
+    }
+  }
+}

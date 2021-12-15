@@ -1,0 +1,54 @@
+.mailer-tester__footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 100px;
+  background: linear-gradient(to left, rgba(255, 255, 255, 0.55), rgba(0, 0, 0, 0.85)), center / cover no-repeat url('../../../assets/images/jpg/bg-header-footer.jpg');
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+
+  &_logo {
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+
+    a {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+    }
+  }
+
+  &_menu {
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      margin: auto;
+      padding: unset;
+
+      li {
+        padding: 0 20px;
+        color: #fff;
+
+        a {
+          text-decoration: none;
+          color: #fff;
+          font-size: 16px;
+          font-weight: 500;
+        }
+
+        span {
+          color: #fff;
+          font-size: 14px;
+          font-weight: 400;
+
+          a {
+            font-size: 14px;
+          }
+        }
+      }
+    }
+  }
+}
