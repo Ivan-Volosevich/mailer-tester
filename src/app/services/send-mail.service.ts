@@ -1,18 +1,20 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { RegistrationFormComponent } from '../components/registration-form/registration-form.component';
+import { RegistrationFormInfo } from '../interface/registration-form.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SendMailService {
+  objFromService = {};
 
-  constructor() { }
-  // constructor(private http: HttpClient) { }
+  // constructor() { }
 
-  // sendEmail(obj: any): Observable<RegistrationFormComponent> {
-  //   console.log('From services')
-  //   return this.http.post<RegistrationFormComponent>('http://localhost:4200/', obj)
-  // }
+  constructor(private http: HttpClient) { }
+
+  sendEmail(objFromService: any): Observable<RegistrationFormInfo> {
+    console.log('From services: ', this.http.post<RegistrationFormInfo>('http://localhost:4200/', objFromService))
+    return this.http.post<RegistrationFormInfo>('http://localhost:4200/', objFromService)
+  }
 }

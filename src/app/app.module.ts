@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IMaskModule } from 'angular-imask';
+import { HttpClientModule } from '@angular/common/http';
 
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -32,6 +33,7 @@ import { RequestComponent } from './components/request/request.component';
     FormsModule,
     ReactiveFormsModule,
     IMaskModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
