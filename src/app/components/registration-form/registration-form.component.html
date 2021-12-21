@@ -1,33 +1,33 @@
 <section class="mailer-tester__registration_form">
   <h2 mat-dialog-title>REGISTRATION</h2>
-  <form [formGroup]="registrationForm" (ngSubmit)="submitRegistration()" novalidate>
+  <form [formGroup]="registrationForm" (ngSubmit)="submitRegistration()" novalidate method="POST">
     <mat-dialog-content>
       <div class="registration-form__block">
         <label>First name*</label>
-        <input type="text" formControlName="registrationFirstName" minlength="2" maxlength="15" placeholder="John" required>
+        <input name="firstName" type="text" formControlName="registrationFirstName" minlength="2" maxlength="15" placeholder="John" required>
         <div *ngIf="registrationForm.controls['registrationFirstName'].invalid && registrationForm.controls['registrationFirstName'].touched" class="validation-error">First name is required <span class="lil-text">(2-15 letters)</span></div>
       </div>
 
       <div class="registration-form__block">
         <label>Last name*</label>
-        <input type="text" formControlName="registrationLastName" minlength="2" maxlength="15" placeholder="Smith" required>
+        <input name="lastName" type="text" formControlName="registrationLastName" minlength="2" maxlength="15" placeholder="Smith" required>
         <div *ngIf="registrationForm.controls['registrationLastName'].invalid && registrationForm.controls['registrationLastName'].touched" class="validation-error">Last name is required <span class="lil-text">(2-15 letters)</span></div>
       </div>
 
       <div class="registration-form__block">
         <label>Email*</label>
-        <input type="email" formControlName="registrationEmail" placeholder="john.smith@gmail.com" email required>
+        <input name="email" type="email" formControlName="registrationEmail" placeholder="john.smith@gmail.com" email required>
         <div *ngIf="registrationForm.controls['registrationEmail'].invalid && registrationForm.controls['registrationEmail'].touched" class="validation-error">Email is required <span class="lil-text">(****@***.*** format)</span></div>
       </div>
 
       <div class="registration-form__block">
         <label>Age</label>
-        <input type="number" formControlName="registrationAge" min="14" max="150" placeholder="32">
+        <input name="age" type="number" formControlName="registrationAge" min="14" max="150" placeholder="32">
       </div>
 
       <div class="registration-form__block">
         <label>Phone*</label>
-        <input type="phone" formControlName="registrationPhone" [imask]="{mask: '+{375}(00)000-00-00'}" [unmask]="true" placeholder="+375(**)***-**-**" required>
+        <input name="phone" type="phone" formControlName="registrationPhone" [imask]="{mask: '+{375}(00)000-00-00'}" [unmask]="true" placeholder="+375(**)***-**-**" required>
         <div *ngIf="registrationForm.controls['registrationPhone'].invalid && registrationForm.controls['registrationPhone'].touched" class="validation-error">Phone is required <span class="lil-text">(+375(**)***-**-** format)</span></div>
       </div>
     </mat-dialog-content>
