@@ -37,8 +37,8 @@ export class SendMailService {
   //   return this.http.post<User>(`${api}/data/users`, objFromService);
   // }
 
-  sendEmail(newUser: any) {
+  sendEmail(newUser: User) {
     console.log('this post from Services!', newUser)
-    return this.http.post<Array<User>>(`${api}/data/users`, newUser);
+    return this.http.post<User>(`${api}/data/users`, newUser);
   }
 }

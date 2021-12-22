@@ -1,9 +1,18 @@
 [
   {
+    "registrationUserId": "Stievenson1235900613",
     "registrationFirstName": "Ivan",
     "registrationLastName": "Stievenson",
     "registrationEmail": "i.stievenson@wow.com",
     "registrationAge": 37,
     "registrationPhone": 375291112233
+  },
+  {
+    "registrationUserId": "Hurris123596985",
+    "registrationFirstName": "Alla",
+    "registrationLastName": "Hurris",
+    "registrationEmail": "hurris-best@wow.com",
+    "registrationAge": 17,
+    "registrationPhone": 375293332211
   }
 ]

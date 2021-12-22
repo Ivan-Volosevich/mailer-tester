@@ -14,6 +14,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { RegistrationFormComponent } from './components/registration-form/registration-form.component';
 import { RequestComponent } from './components/request/request.component';
+import { RegisteredUsersComponent } from './components/registered-users/registered-users.component';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import { RequestComponent } from './components/request/request.component';
     RegistrationComponent,
     RegistrationFormComponent,
     RequestComponent,
+    RegisteredUsersComponent,
   ],
   imports: [
     BrowserModule,

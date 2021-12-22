@@ -12,7 +12,7 @@ import { Subscription } from 'rxjs';
 export class RegistrationFormComponent implements OnInit {
   users: any = [];
   public subscription!: Subscription;
-  constructor(public dialog: MatDialog, private sendmailservice: SendMailService) {}
+  constructor(public dialog: MatDialog, private sendMailService: SendMailService) {}
 
   registrationForm = new FormGroup({
     registrationUserId: new FormControl(null),
@@ -28,7 +28,7 @@ export class RegistrationFormComponent implements OnInit {
   }
 
   getUsers() {
-    return this.sendmailservice.getUsers().subscribe(users => {
+    return this.sendMailService.getUsers().subscribe(users => {
       this.users = users;
       console.log('Users from get: ', users)
     });
@@ -39,17 +39,22 @@ export class RegistrationFormComponent implements OnInit {
       this.registrationForm.markAllAsTouched();
     } else {
       this.registrationForm.value['registrationUserId'] = this.registrationForm.value['registrationLastName'] + new Date().getTime()
+      this.registrationForm.value['registrationPhone'] = +this.registrationForm.value['registrationPhone'];
       console.log('from submitRegistration(): ', this.registrationForm.value);
       // this.sendmailservice.sendEmail(this.registrationForm.value)
       // this.sendmailservice.objFromService = this.registrationForm.value;
 
-      this.sendmailservice.sendEmail(this.registrationForm.value).subscribe(newUser => {
+      this.sendMailService.sendEmail(this.registrationForm.value).subscribe(newUser => {
         console.log('before push: ', this.users)
-        this.users = this.users.push(newUser);
+        this.users.push(newUser);
         console.log('after push: ', this.users)
       })
 
-      this.getUsers();
+      // this.sendMailService.sendEmail(this.registrationForm.value).subscribe(newUser => {
+      //   console.log('before push: ', this.users)
+      //   this.users.push(newUser);
+      //   console.log('after push: ', this.users)
+      // })
 
       return this.registrationForm.value;
     }

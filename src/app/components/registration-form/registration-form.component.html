@@ -1,6 +1,6 @@
 <section class="mailer-tester__registration_form">
   <h2 mat-dialog-title>REGISTRATION</h2>
-  <form [formGroup]="registrationForm" (ngSubmit)="submitRegistration()" novalidate method="POST">
+  <form [formGroup]="registrationForm" (ngSubmit)="submitRegistration()" novalidate method="POST" action="http://localhost:3000/data/users">
     <mat-dialog-content>
       <div class="registration-form__block">
         <label>First name*</label>
@@ -22,7 +22,7 @@
 
       <div class="registration-form__block">
         <label>Age</label>
-        <input name="age" type="number" formControlName="registrationAge" min="14" max="150" placeholder="32">
+        <input name="age" type="number" formControlName="registrationAge" value="14" min="1" max="150" placeholder="32" oninput="validity.valid||(value='');">
       </div>
 
       <div class="registration-form__block">
