@@ -15,6 +15,7 @@ export class RegistrationFormComponent implements OnInit {
   constructor(public dialog: MatDialog, private sendMailService: SendMailService) {}
 
   registrationForm = new FormGroup({
+    formName: new FormControl('Registration form from Main'),
     registrationUserId: new FormControl(null),
     registrationFirstName: new FormControl(null),
     registrationLastName: new FormControl(null),
@@ -23,41 +24,29 @@ export class RegistrationFormComponent implements OnInit {
     registrationPhone: new FormControl(null, [Validators.required, Validators.minLength(12), Validators.maxLength(15)]),
   })
 
-  ngOnInit(): void {
-    this.getUsers();
-  }
-
-  getUsers() {
-    return this.sendMailService.getUsers().subscribe(users => {
-      this.users = users;
-      console.log('Users from get: ', users)
-    });
-  }
+  ngOnInit(): void {}
 
   submitRegistration() {
     if (this.registrationForm.invalid) {
       this.registrationForm.markAllAsTouched();
     } else {
-      this.registrationForm.value['registrationUserId'] = this.registrationForm.value['registrationLastName'] + new Date().getTime()
+      this.registrationForm.value['registrationUserId'] = this.registrationForm.value['registrationLastName'] + new Date().getTime();
       this.registrationForm.value['registrationPhone'] = +this.registrationForm.value['registrationPhone'];
-      console.log('from submitRegistration(): ', this.registrationForm.value);
-      // this.sendmailservice.sendEmail(this.registrationForm.value)
-      // this.sendmailservice.objFromService = this.registrationForm.value;
-
-      this.sendMailService.sendEmail(this.registrationForm.value).subscribe(newUser => {
-        console.log('before push: ', this.users)
-        this.users.push(newUser);
-        console.log('after push: ', this.users)
-      })
-
-      // this.sendMailService.sendEmail(this.registrationForm.value).subscribe(newUser => {
-      //   console.log('before push: ', this.users)
-      //   this.users.push(newUser);
-      //   console.log('after push: ', this.users)
-      // })
-
+      this.sendMailService.sendEmail(this.registrationForm.value).subscribe();
       return this.registrationForm.value;
     }
+  }
+
+  getStatus() {
+    this.sendMailService.getStatus().subscribe(
+      (res) => {
+        if (res.status === 200) {
+          console.log(res)
+        } else {
+          console.log('err: ', res)
+        }
+      }
+    )
   }
 
 }

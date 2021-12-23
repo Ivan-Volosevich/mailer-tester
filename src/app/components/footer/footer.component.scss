@@ -1,9 +1,9 @@
 .mailer-tester__footer {
+  background: linear-gradient(to left, rgba(255, 255, 255, 0.55), rgba(0, 0, 0, 0.85)), center / cover no-repeat url('../../../assets/images/jpg/bg-header-footer.jpg');
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 5px 100px;
-  background: linear-gradient(to left, rgba(255, 255, 255, 0.55), rgba(0, 0, 0, 0.85)), center / cover no-repeat url('../../../assets/images/jpg/bg-header-footer.jpg');
   position: fixed;
   width: 100%;
   bottom: 0;

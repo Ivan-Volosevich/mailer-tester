@@ -10,15 +10,7 @@ export class RegisteredUsersComponent implements OnInit {
   users: any = [];
   constructor(private sendMailService: SendMailService) { }
 
-  getUsers() {
-    return this.sendMailService.getUsers().subscribe(users => {
-      this.users = users;
-    });
-  }
 
-
-  ngOnInit() {
-    this.getUsers();
-  }
+  ngOnInit() { }
 
 }
