@@ -4,6 +4,5 @@ export interface User {
   registrationFirstName: string;
   registrationLastName: string;
   registrationEmail: string;
-  registrationAge: number;
   registrationPhone: number;
 }

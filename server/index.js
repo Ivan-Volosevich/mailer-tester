@@ -19,9 +19,8 @@ app.get('*', (req, res) => {
   res.sendFile('dist/mailer-tester/index.html', {root});
 });
 
-app.post('/', (req, res) => {
+app.post('/', async (req, res) => {
   if (!req.body) { return res.sendStatus(400) }
-  console.log(req.body)
   const message = {
     to: req.body.registrationEmail,
     subject: 'New request for PARTY!',
@@ -32,15 +31,12 @@ app.post('/', (req, res) => {
       <li>Имя: ${req.body.registrationFirstName}</li>
       <li>Фамилия: ${req.body.registrationLastName}</li>
       <li>E-mail: ${req.body.registrationEmail}</li>
-      <li>Возраст: ${req.body.registrationAge}</li>
       <li>Телефон: ${req.body.registrationPhone}</li>
     </ul>`
   }
-  mailer(message)
+  await mailer(message)
 
-  if (res.status(200)) {console.log(res.sendStatus(200))}
-
-  // res.redirect('/')
+  // res.send();
   res.send(req.body);
 });
 

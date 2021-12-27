@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { User } from '../interface/registration-form.model';
 
 const api = '/api'
@@ -13,12 +13,10 @@ export class SendMailService {
   constructor(private http: HttpClient) { }
 
   sendEmail(newUser: User) {
-    console.log('this post from Services!', newUser)
     return this.http.post<User>('/', newUser);
   }
 
-  getStatus() {
-    return this.http.post('/', null, { observe: 'response' });
+  async getStatus() {
+    return this.http.get('/', { observe: 'response', responseType: 'text' });
   }
 }
-
