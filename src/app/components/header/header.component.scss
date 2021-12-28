@@ -37,4 +37,14 @@
       }
     }
   }
+
+  @media screen and (max-width: 992px) {
+    padding: 10px;
+
+    &_menu {
+      nav ul {
+        flex-direction: column;
+      }
+    }
+  }
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SendMailService } from '../../services/send-mail.service';
+import { SendMailService } from '../../services/send-mail/send-mail.service';
 
 @Component({
   selector: 'app-registered-users',

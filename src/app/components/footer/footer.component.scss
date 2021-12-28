@@ -51,4 +51,22 @@
       }
     }
   }
+
+  @media screen and (max-width: 992px) {
+    padding: 5px 10px;
+
+    &_menu {
+      nav ul {
+        flex-direction: column;
+
+        li {
+          padding: 5px;
+
+          &:nth-child(1), &:nth-child(3) {
+            display: none;
+          }
+        }
+      }
+    }
+  }
 }

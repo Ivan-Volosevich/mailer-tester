@@ -34,10 +34,14 @@ app.post('/', async (req, res) => {
       <li>Телефон: ${req.body.registrationPhone}</li>
     </ul>`
   }
-  await mailer(message)
 
-  // res.send();
-  res.send(req.body);
+  try {
+    const temp = await mailer(message)
+    res.send(temp.responseCode);
+  } catch (error) {
+    res.sendStatus(error.responseCode)
+  }
+
 });
 
 app.listen(port, () => console.log(`API running on http://localhost:${port}`));

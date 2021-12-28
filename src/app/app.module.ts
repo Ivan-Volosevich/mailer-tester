@@ -7,7 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IMaskModule } from 'angular-imask';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -15,6 +15,7 @@ import { RegistrationComponent } from './components/registration/registration.co
 import { RegistrationFormComponent } from './components/registration-form/registration-form.component';
 import { RequestComponent } from './components/request/request.component';
 import { RegisteredUsersComponent } from './components/registered-users/registered-users.component';
+import { ThanksPopupComponent } from './components/thanks-popup/thanks-popup.component';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import { RegisteredUsersComponent } from './components/registered-users/register
     RegistrationFormComponent,
     RequestComponent,
     RegisteredUsersComponent,
+    ThanksPopupComponent,
   ],
   imports: [
     BrowserModule,
