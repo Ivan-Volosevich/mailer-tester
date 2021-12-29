@@ -60,25 +60,51 @@
     }
   }
 
-  @media screen and (max-width: 992px) {
+  @media screen and (max-width: 991.98px) {
     form {
       mat-dialog-content {
           grid-template-columns: 1fr;
 
           .registration-form__block {
-            padding: 10px 5px 15px;
+            input {
+              width: 96%;
+            }
+          }
+      }
+
+      mat-dialog-actions {
+        .close-button, .submit-button {
+          margin: 5px;
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 575.98px) {
+    h2 {
+      margin: 0 0 10px;
+    }
+
+    form {
+      mat-dialog-content {
+
+          .registration-form__block {
+            padding: 0 5px 15px;
 
             input {
-              width: 100%;
               height: 30px;
+              font-size: 16px;
             }
           }
       }
 
       mat-dialog-actions {
         padding: 5px 0;
-        button {
-          margin: 10px;
+        flex-wrap: nowrap;
+
+        .close-button, .submit-button {
+          font-size: 16px;
+          padding: 10px 30px;
         }
       }
     }

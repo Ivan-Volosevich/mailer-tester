@@ -3,7 +3,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 5px 100px;
+  padding: 5px;
   position: fixed;
   width: 100%;
   bottom: 0;
@@ -52,7 +52,7 @@
     }
   }
 
-  @media screen and (max-width: 992px) {
+  @media screen and (max-width: 575.98px) {
     padding: 5px 10px;
 
     &_menu {

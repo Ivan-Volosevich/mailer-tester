@@ -32,10 +32,49 @@
     h3 {
       font-size: 24px;
 
+      br {
+        display: none;
+      }
+
       svg {
         width: 28px;
       }
     }
+
+    p {
+      font-size: 16px;
+
+      br {
+        display: none;
+      }
+    }
   }
 
+  @media screen and (max-width: 575.98px) {
+    h2 {
+      font-size: 22px;
+    }
+
+    mat-dialog-content {
+      h3 {
+        font-size: 14px;
+
+        br {
+          display: block;
+        }
+
+        svg {
+          width: 20px;
+        }
+      }
+
+      p {
+        font-size: 12px;
+
+        br {
+          display: block;
+        }
+      }
+    }
+  }
 }

@@ -14,7 +14,9 @@
     padding: 40px 0;
 
     &-title {
-      font-size: 20px;
+      h2 {
+        font-size: 30px;
+      }
     }
 
     &-content {
@@ -23,11 +25,30 @@
       align-items: center;
 
       &--text {
+        text-align: center;
         padding-bottom: 10px;
 
         span {
           font-size: 24px;
           font-weight: 500;
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 575.98px) {
+    &_container {
+      &-title {
+        h2 {
+          font-size: 22px;
+        }
+      }
+
+      &-content {
+        &--text {
+          span {
+            font-size: 16px;
+          }
         }
       }
     }
