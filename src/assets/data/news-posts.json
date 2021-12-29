@@ -1,0 +1,26 @@
+[
+  {
+    "titlePost": "New guitar of 2021!",
+    "imagePost": "../../../assets//images/news-posts/news-post-1.jpg",
+    "textPost": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Recusandae nam harum assumenda reiciendis officiis sed facere asperiores alias ad atque impedit perspiciatis, corporis laudantium dolores beatae id voluptatum ratione obcaecati?",
+    "autorPost": "Ivan Volosevich"
+  },
+  {
+    "titlePost": "Wonderful game of my life.",
+    "imagePost": "../../../assets//images/news-posts/news-post-2.jpg",
+    "textPost": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Recusandae nam harum assumenda reiciendis officiis sed facere asperiores alias ad atque impedit perspiciatis, corporis laudantium dolores beatae id voluptatum ratione obcaecati?",
+    "autorPost": "Stieve Robertson"
+  },
+  {
+    "titlePost": "New guitar of 2021!",
+    "imagePost": "../../../assets//images/news-posts/news-post-1.jpg",
+    "textPost": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Recusandae nam harum assumenda reiciendis officiis sed facere asperiores alias ad atque impedit perspiciatis, corporis laudantium dolores beatae id voluptatum ratione obcaecati?",
+    "autorPost": "Ivan Volosevich"
+  },
+  {
+    "titlePost": "Wonderful game of my life.",
+    "imagePost": "../../../assets//images/news-posts/news-post-2.jpg",
+    "textPost": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Recusandae nam harum assumenda reiciendis officiis sed facere asperiores alias ad atque impedit perspiciatis, corporis laudantium dolores beatae id voluptatum ratione obcaecati?",
+    "autorPost": "Stieve Robertson"
+  }
+]

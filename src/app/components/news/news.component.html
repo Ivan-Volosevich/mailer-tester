@@ -1,0 +1,17 @@
+<p>news page works!</p>
+<a routerLink="/news/add-post" routerLinkActive="active-link">Add news post</a>
+
+<section class="mailer-tester__news">
+  <div class="mailer-tester__news_container">
+    <div *ngFor="let post of arrayNewsPosts" class="mailer-tester__news_container-post">
+      <div class="mailer-tester__news_container-post--title">
+        <h3>{{ post.titlePost }}</h3>
+      </div>
+      <div class="mailer-tester__news_container-post--content">
+        <div class="mailer-tester__news_container-post--content-image"><img src="{{ post.imagePost }}" alt="post-image"></div>
+        <div class="mailer-tester__news_container-post--content-text">{{ post.textPost }}</div>
+      </div>
+      <div class="mailer-tester__news_container-post--autor">{{ post.autorPost }}</div>
+    </div>
+  </div>
+</section>

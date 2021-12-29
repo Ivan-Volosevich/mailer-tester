@@ -1,0 +1,38 @@
+<section class="mailer-tester__registration_form">
+  <h2 mat-dialog-title>GET MORE INFORMATION</h2>
+  <form [formGroup]="registrationForm" (ngSubmit)="submitRegistration()" novalidate method="POST" action="/">
+    <mat-dialog-content>
+      <div class="registration-form__block">
+        <label class="bold" title="First name should be from 2 to 15 letters. Required*">First name*</label>
+        <input name="firstName" type="text" formControlName="registrationFirstName" minlength="2" maxlength="15" placeholder="John" title="First name should be from 2 to 15 letters. Required*" required>
+        <div *ngIf="registrationForm.controls['registrationFirstName'].invalid && registrationForm.controls['registrationFirstName'].touched" class="validation-error">First name is required <span class="lil-text">(2-15 letters)</span></div>
+      </div>
+
+      <div class="registration-form__block">
+        <label class="bold" title="Last name should be from 2 to 15 letters. Required*">Last name*</label>
+        <input name="lastName" type="text" formControlName="registrationLastName" minlength="2" maxlength="15" placeholder="Smith" title="Last name should be from 2 to 15 letters. Required*" required>
+        <div *ngIf="registrationForm.controls['registrationLastName'].invalid && registrationForm.controls['registrationLastName'].touched" class="validation-error">Last name is required <span class="lil-text">(2-15 letters)</span></div>
+      </div>
+
+      <div class="registration-form__block">
+        <label class="bold" title="Your email should have ****@***.*** format. Required*">Email*</label>
+        <input name="email" type="email" formControlName="registrationEmail" placeholder="john.smith@gmail.com" email title="Your email should have ****@***.*** format. Required*" required>
+        <div *ngIf="registrationForm.controls['registrationEmail'].invalid && registrationForm.controls['registrationEmail'].touched || statusOfSending === 550" class="validation-error">Email is required <span class="lil-text">(****@***.*** format)</span></div>
+      </div>
+
+      <div class="registration-form__block">
+        <label class="bold" title="Your phone number should have +375(**)***-**-** format. Required*">Phone*</label>
+        <input name="phone" type="phone" formControlName="registrationPhone" [imask]="{mask: '+{375}(00)000-00-00'}" [unmask]="true" placeholder="+375(**)***-**-**" title="Your phone number should have +375(**)***-**-** format. Required*" required>
+        <div *ngIf="registrationForm.controls['registrationPhone'].invalid && registrationForm.controls['registrationPhone'].touched" class="validation-error">Phone is required <span class="lil-text">(+375(**)***-**-** format)</span></div>
+      </div>
+
+      <div></div>
+      <div *ngIf="statusOfSending !== 200 && statusOfSending !== 404 && statusOfSending !== 550 && statusOfSending !== undefined" class="registration-form__block validation-error"><b>Error. Reload the page and try again.</b></div>
+      <div *ngIf="statusOfSending === 404" class="registration-form__block validation-error"><b>Error 404 (not found). Reload the page and try again.</b></div>
+    </mat-dialog-content>
+    <mat-dialog-actions>
+      <button class="close-button" mat-button mat-dialog-close>Cancel</button>
+      <button class="submit-button" mat-button cdkFocusInitial>Submit</button>
+    </mat-dialog-actions>
+  </form>
+</section>

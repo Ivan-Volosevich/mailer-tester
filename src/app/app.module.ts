@@ -11,11 +11,12 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { RegistrationComponent } from './components/registration/registration.component';
-import { RegistrationFormComponent } from './components/registration-form/registration-form.component';
-import { RequestComponent } from './components/request/request.component';
-import { RegisteredUsersComponent } from './components/registered-users/registered-users.component';
+import { RegistrationComponent } from './components/home/registration/registration.component';
+import { RegistrationFormComponent } from './components/home/registration-form/registration-form.component';
 import { ThanksPopupComponent } from './components/thanks-popup/thanks-popup.component';
+import { AddPostComponent } from './components/news/add-post/add-post.component';
+import { HomeComponent } from './components/home/home.component';
+import { NewsComponent } from './components/news/news.component';
 
 
 @NgModule({
@@ -25,9 +26,10 @@ import { ThanksPopupComponent } from './components/thanks-popup/thanks-popup.com
     FooterComponent,
     RegistrationComponent,
     RegistrationFormComponent,
-    RequestComponent,
-    RegisteredUsersComponent,
     ThanksPopupComponent,
+    AddPostComponent,
+    HomeComponent,
+    NewsComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,112 @@
+.mailer-tester__registration_form {
+  h2 {
+    text-align: center;
+    font-size: 24px;
+    font-weight: 600;
+  }
+
+  form {
+    mat-dialog-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+
+      .registration-form__block {
+        display: flex;
+        flex-direction: column;
+        padding: 5px 20px 20px;
+        position: relative;
+
+        input {
+          width: 280px;
+          height: 40px;
+          font-size: 20px;
+        }
+      }
+    }
+
+    mat-dialog-actions {
+      justify-content: space-evenly;
+      padding: 30px 0;
+
+      .close-button, .submit-button {
+        border: none;
+        border-radius: 4px;
+        color: #fff;
+        font-size: 18px;
+        font-weight: 600;
+        padding: 12px 50px;
+        cursor: pointer;
+        transition: ease-in-out .3s;
+        border: 1px solid rgb(0, 0, 0, 0);
+      }
+
+      .close-button {
+        background-color: #550000;
+
+        &:hover {
+          background-color: #7c0000;
+          border: 1px solid rgb(0, 95, 46);
+        }
+      }
+
+      .submit-button {
+        background-color: #00551f;
+
+        &:hover {
+          background-color: #007c2d;
+          border: 1px solid rgb(75, 0, 0);
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 991.98px) {
+    form {
+      mat-dialog-content {
+          grid-template-columns: 1fr;
+
+          .registration-form__block {
+            input {
+              width: 96%;
+            }
+          }
+      }
+
+      mat-dialog-actions {
+        .close-button, .submit-button {
+          margin: 5px;
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 575.98px) {
+    h2 {
+      margin: 0 0 10px;
+    }
+
+    form {
+      mat-dialog-content {
+
+          .registration-form__block {
+            padding: 0 5px 15px;
+
+            input {
+              height: 30px;
+              font-size: 16px;
+            }
+          }
+      }
+
+      mat-dialog-actions {
+        padding: 5px 0;
+        flex-wrap: nowrap;
+
+        .close-button, .submit-button {
+          font-size: 16px;
+          padding: 10px 30px;
+        }
+      }
+    }
+  }
+}
