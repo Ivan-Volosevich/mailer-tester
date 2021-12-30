@@ -27,6 +27,7 @@ export class RegistrationFormComponent implements OnInit {
     registrationLastName: new FormControl(null),
     registrationEmail: new FormControl(null, [Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]),
     registrationPhone: new FormControl(null, [Validators.required, Validators.minLength(12), Validators.maxLength(15)]),
+    registrationFillName: new FormControl(null),
   })
 
   ngOnInit(): void {}
@@ -46,7 +47,7 @@ export class RegistrationFormComponent implements OnInit {
           this.statusOfSending = err.status;
         },
       });
-      return this.registrationForm.value;
+      return this.registrationForm.value['registrationFillName'] !== null ? this.dialog.closeAll() : this.registrationForm.value;
     }
   }
 

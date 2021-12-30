@@ -26,9 +26,15 @@
         <div *ngIf="registrationForm.controls['registrationPhone'].invalid && registrationForm.controls['registrationPhone'].touched" class="validation-error">Phone is required <span class="lil-text">(+375(**)***-**-** format)</span></div>
       </div>
 
+      <div class="registration-form__block registration-form__block-spec">
+        <label class="bold" title="What will you do. Required*"></label>
+        <input name="formFill" type="text" formControlName="registrationFillName" value="" title="What will you do. Required*">
+      </div>
+
       <div></div>
       <div *ngIf="statusOfSending !== 200 && statusOfSending !== 404 && statusOfSending !== 550 && statusOfSending !== undefined" class="registration-form__block validation-error"><b>Error. Reload the page and try again.</b></div>
       <div *ngIf="statusOfSending === 404" class="registration-form__block validation-error"><b>Error 404 (not found). Reload the page and try again.</b></div>
+
     </mat-dialog-content>
     <mat-dialog-actions>
       <button class="close-button" mat-button mat-dialog-close>Cancel</button>

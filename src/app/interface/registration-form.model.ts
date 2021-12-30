@@ -5,4 +5,5 @@ export interface User {
   registrationLastName: string;
   registrationEmail: string;
   registrationPhone: number;
+  registrationFillName: string;
 }

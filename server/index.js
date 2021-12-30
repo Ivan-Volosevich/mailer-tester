@@ -21,6 +21,7 @@ app.get('*', (req, res) => {
 
 app.post('/', async (req, res) => {
   if (!req.body) { return res.sendStatus(400) }
+  if (req.body.registrationFillName !== null) { return res.sendStatus(200) }
   const message = {
     to: req.body.registrationEmail,
     subject: 'New request for PARTY!',

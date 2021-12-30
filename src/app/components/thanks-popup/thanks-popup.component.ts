@@ -18,7 +18,6 @@ export class ThanksPopupComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.subscription = interval(1000).subscribe(x => {
       this.counter--;
-      console.log('counter: ', this.counter)
       if(this.counter === 0) {
         this.dialog.closeAll();
       }
