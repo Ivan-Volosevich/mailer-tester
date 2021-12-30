@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AddPostService } from '../../../services/add-post/add-post.service'
+import { ThanksPopupComponent } from '../../thanks-popup/thanks-popup.component';
+import { ThanksPopupService } from '../../../services/thanks-popup/thanks-popup.service'
 
 @Component({
   selector: 'app-add-post',
@@ -9,7 +11,7 @@ import { AddPostService } from '../../../services/add-post/add-post.service'
 })
 export class AddPostComponent implements OnInit {
 
-  constructor(private addPostService: AddPostService) { }
+  constructor(private addPostService: AddPostService, private thanksPopupService: ThanksPopupService) { }
 
   newsPostsForm = new FormGroup({
     titlePost: new FormControl(null),
@@ -28,12 +30,14 @@ export class AddPostComponent implements OnInit {
 
       this.addPostService.sendNewPost(this.newsPostsForm.value).subscribe({
         next: (res) => {
-          console.log('res from add post: ', res)
+          // console.log('res from add post: ', res)
         }, error: (err) => {
-          console.log('err from add post: ', err)
+          // console.log('err from add post: ', err)
+          this.newsPostsForm.reset();
+          this.thanksPopupService.openThanksPopup(ThanksPopupComponent)
         },
       });
-      console.log('post: ', this.newsPostsForm.value)
+      // console.log('post: ', this.newsPostsForm.value)
       return this.newsPostsForm.value;
     }
   }

@@ -38,7 +38,6 @@ export class RegistrationFormComponent implements OnInit {
     if (this.registrationForm.invalid) {
       this.registrationForm.markAllAsTouched();
     } else if (this.registrationForm.value['registrationFirstName'].match(this.linksRegExp) || this.registrationForm.value['registrationLastName'].match(this.linksRegExp)) {
-      console.log('name!')
       this.novalidNamesInput = true;
     } else {
       this.novalidNamesInput = false;

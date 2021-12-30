@@ -47,20 +47,18 @@ app.post('/', async (req, res) => {
 });
 
 app.post('/news/add-post', async (req, res) => {
-  console.log('req from NEWS: ', req.body)
   if (!req.body) { return res.sendStatus(400) }
   const postContent = {
-    titlePost: req.titlePost,
-    imagePost: '../../../assets//images/news-posts/news-post-1.jpg',
-    textPost: req.textPost,
-    autorPost: req.autorPost
+    titlePost: req.body.titlePost,
+    imagePost: "https://fakeimg.pl/350x200/?text=Coming soon ;)",
+    textPost: req.body.textPost,
+    autorPost: req.body.autorPost
   }
 
   try {
-    console.log('From index OK+++++++++++++++: ', await newPost(postContent))
-    res.send('I did it?');
+    await newPost(postContent)
+    res.sendStatus(200);
   } catch (error) {
-    console.log('From index error------------: ', error)
     res.send(error)
   }
 

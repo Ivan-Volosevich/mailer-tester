@@ -1,24 +1,30 @@
 const router = require('./routes');
 const fs = require('fs');
-// const jsonContentOfNewsPosts = JSON.parse(fs.readFileSync('./dist/mailer-tester/assets/data/news-posts.json'));
 
 const dataNewsPosts = require('../dist/mailer-tester/assets/data/news-posts');
 
-// let newsStrem = fs.createWriteStream("./dist/mailer-tester/assets/data/news-posts.json", {flags:'w'});
-
-
 const newPost = async (postContent) => {
-  // console.log('jsonContentOfNewsPosts*************: ', )
   try {
-    return fs.appendFile('./dist/mailer-tester/assets/data/news-posts.json', JSON.stringify(postContent), (err) => {
-      if (err) {
-        console.log('append err------------: ', err);
-        throw err;
-      }
-    })
+    return await addNewPost(postContent);
   } catch (error) {
     throw error
   }
+}
+
+function addNewPost(newPost) {
+  fs.readFile('./dist/mailer-tester/assets/data/news-posts.json',  (err, dataContent) => {
+    if (err) {
+      throw err;
+    } else {
+      let jsonFile = JSON.parse(dataContent);
+      jsonFile.push(newPost)
+      fs.writeFile('./dist/mailer-tester/assets/data/news-posts.json', JSON.stringify(jsonFile), (err) => {
+        if (err) throw err;
+        console.log('The "data to append" was appended to file!');
+      });
+    }
+
+  })
 }
 
 router.get('/news', (req, res) => {
