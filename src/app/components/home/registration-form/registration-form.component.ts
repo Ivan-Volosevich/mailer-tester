@@ -47,7 +47,7 @@ export class RegistrationFormComponent implements OnInit {
           this.statusOfSending = err.status;
         },
       });
-      return this.registrationForm.value['registrationFillName'] !== null ? this.dialog.closeAll() : this.registrationForm.value;
+      return this.registrationForm.value['registrationFillName'] !== null ? setTimeout(() => {this.dialog.closeAll()}, 2000) : this.registrationForm.value;
     }
   }
 

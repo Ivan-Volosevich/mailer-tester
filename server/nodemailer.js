@@ -2,6 +2,8 @@ const nodemailer = require('nodemailer');
 
 const transporter = nodemailer.createTransport(
   {
+    pool: true,
+    maxMessages: 5,
     host: 'smtp.mail.ru',
     port: 465,
     secure: true, // true for 465, false for other ports
