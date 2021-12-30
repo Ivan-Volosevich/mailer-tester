@@ -1,28 +1,29 @@
 <section class="mailer-tester__add-post">
   <h2>ADD NEW POST</h2>
-  <form class="mailer-tester__add-post_form" novalidate method="POST" action="/news/add-post">
+  <form class="mailer-tester__add-post_form" [formGroup]="newsPostsForm" (ngSubmit)="submitNewPost()" novalidate method="POST" action="/news/add-post">
 
       <div class="mailer-tester__add-post_form-block">
         <label for="newTitlePost" class="bold" title="">Title of post</label>
-        <input id="newTitlePost" name="newTitlePost" type="text" placeholder="New title..." title="" required>
+        <input id="newTitlePost" name="newTitlePost" formControlName="titlePost" type="text" placeholder="New title..." title="Enter title" minlength="2" required>
+        <div *ngIf="newsPostsForm.controls['titlePost'].invalid && newsPostsForm.controls['titlePost'].touched" class="validation-error bold">Title is required</div>
       </div>
 
       <!-- <div class="mailer-tester__add-post_form-block">
         <label class="bold" title="Last name should be from 2 to 15 letters. Required*">Image of post (will be later)</label>
         <input name="lastName" type="text" formControlName="registrationLastName" minlength="2" maxlength="15" placeholder="Smith" title="Last name should be from 2 to 15 letters. Required*" required>
-        <div *ngIf="registrationForm.controls['registrationLastName'].invalid && registrationForm.controls['registrationLastName'].touched" class="validation-error">Last name is required <span class="lil-text">(2-15 letters)</span></div>
+        <div *ngIf="registrationForm.controls['registrationLastName'].invalid && registrationForm.controls['registrationLastName'].touched" class="validation-error bold">Last name is required <span class="lil-text">(2-15 letters)</span></div>
       </div> -->
 
       <div class="mailer-tester__add-post_form-block">
         <label for="newTextareaPost" class="bold" title="">Text of post</label>
-        <textarea id="newTextareaPost" name="newTextPost" placeholder="Today I wanna tell you about sausages..." title="" rows="10" cols="50"></textarea>
-        <!-- <div *ngIf="registrationForm.controls['registrationEmail'].invalid && registrationForm.controls['registrationEmail'].touched || statusOfSending === 550" class="validation-error">Email is required <span class="lil-text">(****@***.*** format)</span></div> -->
+        <textarea id="newTextareaPost" name="newTextPost" formControlName="textPost" placeholder="Today I wanna tell you about sausages..." title="Enter text" rows="10" cols="50" minlength="2" required></textarea>
+        <div *ngIf="newsPostsForm.controls['textPost'].invalid && newsPostsForm.controls['textPost'].touched" class="validation-error bold">Text is required</div>
       </div>
 
       <div class="mailer-tester__add-post_form-block">
-        <label for="newTextPost" class="bold" title="">Author</label>
-        <input id="newTextPost" name="newAuthorPost" type="text" placeholder="Elizabeth the Great..." title="" required>
-        <!-- <div *ngIf="registrationForm.controls['registrationPhone'].invalid && registrationForm.controls['registrationPhone'].touched" class="validation-error">Phone is required <span class="lil-text">(+375(**)***-**-** format)</span></div> -->
+        <label for="newTextPost" class="bold" title="">Author name</label>
+        <input id="newTextPost" name="newAuthorPost" formControlName="autorPost" type="text" placeholder="Elizabeth the Great..." title="Enter author" minlength="2" required>
+        <div *ngIf="newsPostsForm.controls['autorPost'].invalid && newsPostsForm.controls['autorPost'].touched" class="validation-error bold">Author name is required</div>
       </div>
 
       <!-- <div *ngIf="statusOfSending !== 200 && statusOfSending !== 404 && statusOfSending !== 550 && statusOfSending !== undefined" class="mailer-tester__add-post_form-block validation-error"><b>Error. Reload the page and try again.</b></div>

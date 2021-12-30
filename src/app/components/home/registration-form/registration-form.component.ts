@@ -13,6 +13,8 @@ import { ThanksPopupService } from '../../../services/thanks-popup/thanks-popup.
 export class RegistrationFormComponent implements OnInit {
   users: any = [];
   statusOfSending: any = undefined;
+  linksRegExp = /^((ftp|http|https):\/\/)?(www\.)?([A-Za-zА-Яа-я0-9]{1}[A-Za-zА-Яа-я0-9\-]*\.?)*\.{1}[A-Za-zА-Яа-я0-9-]{2,8}(\/([\w#!:.?+=&%@!\-\/])*)?/;
+  novalidNamesInput = false;
 
   constructor(
     public dialog: MatDialog,
@@ -35,7 +37,11 @@ export class RegistrationFormComponent implements OnInit {
   submitRegistration() {
     if (this.registrationForm.invalid) {
       this.registrationForm.markAllAsTouched();
+    } else if (this.registrationForm.value['registrationFirstName'].match(this.linksRegExp) || this.registrationForm.value['registrationLastName'].match(this.linksRegExp)) {
+      console.log('name!')
+      this.novalidNamesInput = true;
     } else {
+      this.novalidNamesInput = false;
       this.registrationForm.value['registrationUserId'] = this.registrationForm.value['registrationLastName'] + "-" + (new Date().getTime()).toString().slice(-6);
       this.registrationForm.value['registrationPhone'] = +this.registrationForm.value['registrationPhone'];
       this.sendMailService.sendEmail(this.registrationForm.value).subscribe({

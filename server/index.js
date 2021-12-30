@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const routes = require('./routes');
 const mailer = require('./nodemailer');
+const newPost = require('./news-posts');
 
 const root = './';
 const port = process.env.PORT || '3000';
@@ -41,6 +42,26 @@ app.post('/', async (req, res) => {
     res.send(temp.responseCode);
   } catch (error) {
     res.sendStatus(error.responseCode)
+  }
+
+});
+
+app.post('/news/add-post', async (req, res) => {
+  console.log('req from NEWS: ', req.body)
+  if (!req.body) { return res.sendStatus(400) }
+  const postContent = {
+    titlePost: req.titlePost,
+    imagePost: '../../../assets//images/news-posts/news-post-1.jpg',
+    textPost: req.textPost,
+    autorPost: req.autorPost
+  }
+
+  try {
+    console.log('From index OK+++++++++++++++: ', await newPost(postContent))
+    res.send('I did it?');
+  } catch (error) {
+    console.log('From index error------------: ', error)
+    res.send(error)
   }
 
 });

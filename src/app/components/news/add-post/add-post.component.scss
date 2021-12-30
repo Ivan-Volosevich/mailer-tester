@@ -12,7 +12,8 @@
     &-block {
       display: flex;
       justify-content: center;
-      padding: 10px 0;
+      padding: 10px 0 18px;
+      position: relative;
 
       input, textarea {
         min-width: 75%;

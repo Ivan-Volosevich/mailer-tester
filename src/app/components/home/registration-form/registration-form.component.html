@@ -5,13 +5,13 @@
       <div class="registration-form__block">
         <label class="bold" title="First name should be from 2 to 15 letters. Required*">First name*</label>
         <input name="firstName" type="text" formControlName="registrationFirstName" minlength="2" maxlength="15" placeholder="John" title="First name should be from 2 to 15 letters. Required*" required>
-        <div *ngIf="registrationForm.controls['registrationFirstName'].invalid && registrationForm.controls['registrationFirstName'].touched" class="validation-error">First name is required <span class="lil-text">(2-15 letters)</span></div>
+        <div *ngIf="registrationForm.controls['registrationFirstName'].invalid && registrationForm.controls['registrationFirstName'].touched" class="validation-error">First name is required <span class="lil-text">(2-15 letters without links!)</span></div>
       </div>
 
       <div class="registration-form__block">
         <label class="bold" title="Last name should be from 2 to 15 letters. Required*">Last name*</label>
         <input name="lastName" type="text" formControlName="registrationLastName" minlength="2" maxlength="15" placeholder="Smith" title="Last name should be from 2 to 15 letters. Required*" required>
-        <div *ngIf="registrationForm.controls['registrationLastName'].invalid && registrationForm.controls['registrationLastName'].touched" class="validation-error">Last name is required <span class="lil-text">(2-15 letters)</span></div>
+        <div *ngIf="registrationForm.controls['registrationLastName'].invalid && registrationForm.controls['registrationLastName'].touched" class="validation-error">Last name is required <span class="lil-text">(2-15 letters without links!)</span></div>
       </div>
 
       <div class="registration-form__block">
@@ -34,6 +34,7 @@
       <div></div>
       <div *ngIf="statusOfSending !== 200 && statusOfSending !== 404 && statusOfSending !== 550 && statusOfSending !== undefined" class="registration-form__block validation-error"><b>Error. Reload the page and try again.</b></div>
       <div *ngIf="statusOfSending === 404" class="registration-form__block validation-error"><b>Error 404 (not found). Reload the page and try again.</b></div>
+      <div *ngIf="novalidNamesInput === true" class="registration-form__block validation-error"><b>Name is required without links!</b></div>
 
     </mat-dialog-content>
     <mat-dialog-actions>
