@@ -29,10 +29,7 @@ export class AddPostComponent implements OnInit {
     } else {
 
       this.addPostService.sendNewPost(this.newsPostsForm.value).subscribe({
-        next: (res) => {
-          // console.log('res from add post: ', res)
-        }, error: (err) => {
-          // console.log('err from add post: ', err)
+        error: () => {
           this.newsPostsForm.reset();
           this.thanksPopupService.openThanksPopup(ThanksPopupComponent)
         },
